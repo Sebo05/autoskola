@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["jmeno"])) {
+    header("Location: login.php");
+    exit();
+}
 require ("../assets/configDB.php");
 
 $jmeno= $telfon = $heslo = $heslo2 = null;
