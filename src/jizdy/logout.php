@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['jmeno'])){
+if (isset($_SESSION['uzivatelske_jmeno'])){
     session_unset();
     session_destroy();
 }

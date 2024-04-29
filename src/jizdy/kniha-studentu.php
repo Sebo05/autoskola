@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (!isset($_SESSION["jmeno"])) {
+if (!isset($_SESSION["uzivatelske_jmeno"])) {
     header("Location: login.php");
     exit();
 }
@@ -9,13 +9,7 @@ require ("../assets/configDB.php");
 $conn = connDB();
 
 $sql = "SELECT * FROM zaci";
-$result = mysqli_query($conn, $sql);
-
-if (!$result){
-    echo mysqli_error($conn);
-}else{
-    $zaci = mysqli_fetch_all($result, MYSQLI_ASSOC);
-}
+$query = mysqli_query($conn, $sql);
 
 ?>
 <!doctype html>
@@ -28,23 +22,22 @@ if (!$result){
     <title>Kniha studentů</title>
 </head>
 <body>
-<?php if (empty($zak)):?>
+<?php if (mysqli_num_rows($query) == 0):?>
 <p>Nejsou žádní studenti v databazi!</p>
 <?php else:?>
-<?php foreach ($zaci as $zak):?>
     <ul>
+    <?php while ($row = mysqli_fetch_assoc($query)):?>
         <li>
-            <p>Jméno: <?= htmlspecialchars($zak["jmeno"])?></p>
+            <p>Jméno: <?= htmlspecialchars($row["jmeno"])?></p>
         </li>
         <li>
-            <p>Telefon: <?= htmlspecialchars($zak["telefon"])?></p>
+            <p>Telefon: <?= htmlspecialchars($row["telefon"])?></p>
         </li>
         <li>
-            <a href="jizdy-student.php?id=<?= $zak['id']?>">Jizdy studenta</a>
+            <a href="pridani-jizd.php?id=<?= $row['zak_id']?>">Jizdy studenta</a>
         </li>
+    <?php endwhile;?>
     </ul>
-
-<?php endforeach;?>
 <?php endif;?>
 </body>
 </html>
