@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION["uzivatelskeJmeno"])) {
-    header("Location: login.php");
+if (!isset($_SESSION["LogName"])) {
+    header("Location: admin.php");
     exit();
 }
 
-require ("../assets/configDB.php");
+require("../assets/configDB.php");
 $conn = connDB();
 
 $sql = "SELECT * FROM zaci";
@@ -22,6 +22,7 @@ $query = mysqli_query($conn, $sql);
     <title>Kniha studentů</title>
 </head>
 <body>
+<a href="pridani-studenta.php">Přidat studenta</a>
 <?php if (mysqli_num_rows($query) == 0):?>
 <p>Nejsou žádní studenti v databazi!</p>
 <?php else:?>

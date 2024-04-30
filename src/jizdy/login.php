@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $hashed_password = $row['uzivatelskeJmeno'];
         session_start();
         $_SESSION["uzivatelskeJmeno"] = $uzivatelskeJmeno;
-        header("location: jizdy.php");
+        header("location: jizdy-studenta.php");
         exit();
     }else{
         echo "Neplatné jméno nebo heslo.";

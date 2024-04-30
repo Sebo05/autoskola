@@ -25,4 +25,3 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET["zak_id"]) && is_numeric(
     http_response_code(400);
     echo "Chyba: Neplatný požadavek";
 }
-?>

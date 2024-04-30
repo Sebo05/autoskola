@@ -1,11 +1,11 @@
 <?php
 session_start();
-if (!isset($_SESSION["uzivatelskeJmeno"])) {
-    header("Location: login.php");
+if (!isset($_SESSION["LogName"])) {
+    header("Location: admin.php");
     exit();
 }
 
-require ("../assets/configDB.php");
+require("../assets/configDB.php");
 
 $jmeno = $uziv_jmeno = $telfon = $datum_nastupu = $heslo = $heslo2 = null;
 
