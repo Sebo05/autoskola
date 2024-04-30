@@ -1,4 +1,11 @@
 <?php
+session_start();
+
+if (isset($_SESSION["uzivatelskeJmeno"])) {
+    header("Location: jizdy-studenta.php");
+    exit();
+}
+
 require ("../assets/configDB.php");
 
 $conn = connDB();

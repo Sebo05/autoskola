@@ -1,4 +1,9 @@
 <?php
+session_start();
+if (!isset($_SESSION["uzivatelskeJmeno"])) {
+    header("Location: login.php");
+    exit();
+}
 
 ?>
 <!doctype html>
@@ -12,5 +17,8 @@
 </head>
 <body>
 <h3></h3>
+<form action="logout.php" method="post">
+    <button>Odhlásit se</button>
+</form>
 </body>
 </html>
