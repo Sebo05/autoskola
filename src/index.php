@@ -5,36 +5,51 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="assets/styles/default.css">
-    <link rel="stylesheet" href="assets/styles/header.css">
-    <?php require "head-setup.html"?>
+    <link rel="stylesheet" href="../dist/output.css">
+    <link rel="shortcut icon" href="../assets/img/favicon.ico" type="image/x-icon">
     <title>Autoškola Petr Drbola Velké Pavlovice</title>
+
 </head>
 <body>
 <header>
-    <nav>
+    <nav class="sticky top-0 left-0 right-0 flex justify-between align-middle flex-row p-10 border-b border-b-green-600">
         <img src="" alt="Logo Autoškola Petr Drbola">
-        <ul>
+        <ul class="list-none flex justify-between flex-row align-middle gap-10 text-2xl">
             <li><a href="index.php">Domů</a></li>
             <li><a href="#">Ceník</a></li>
             <li><a href="#">Přihlášení</a></li>
             <li><a href="#">Výuka</a></li>
             <li><a href="#">Testy</a></li>
             <li><a href="#">Kontakt</a></li>
-            <li><a href="jizdy/login.php">Jízdy</a></li>
+            <li><a href="../jizdy/login.php">Jízdy</a></li>
         </ul>
     </nav>
 </header>
 <main>
-    <section>
-        <h1 class="">Vítej na stránkách Autoškoly Petr Drbola Velké Pavlovice, Mikulov</h1>
-        <div class="">
+    <section class="">
+        <h1 class="text-6xl mt-10 text-center">Vítej na stránkách Autoškoly Petr Drbola Velké Pavlovice, Mikulov</h1>
+        <div class="border-b border-t border-black mt-10 mb-10">
             <!--Tady bude ten slider-->
-            <h3 class="">Aktuality:</h3>
-            <p class="">21. července 2019: Nový automobil Škoda Fabia III pro výuku skupiny B.</p>
-            <img src="" alt="Foto auta Škoda Fabia 3 pro výuku skupiny B.">
-            <p class="">28. května 2014: Nový motocykl Honda CBF 125 pro výuku skupin AM a A1.</p>
-            <img src="" alt="Foto motocyklu Honda CBF 125 pro výuku skupin AM a A1. ">
+            <h1 class="text-4xl mt-10 text-center">Aktuality:</h1>
+            <div class="carousel w-auto h-80 relative">
+                <button class="absolute bg-none border-none text-7xl top-1/2 z-10 prev">&lt;</button>
+                <button class="absolute bg-none border-none text-7xl top-1/2 z-10 next">&gt;</button>
+                <ul>
+                    <li class="absolute inset-0 opacity-0" data-active="true">
+                        <div>
+                            <p class="">21. července 2019: Nový automobil Škoda Fabia III pro výuku skupiny B.</p>
+                            <img src="http://www.autoskola-drbola.wz.cz/grafika/foto/fabia3.jpg" alt="Foto auta Škoda Fabia 3 pro výuku skupiny B." class="w-1/2 h-auto">
+                        </div>
+                    </li>
+                    <li class="absolute inset-0 opacity-0">
+                        <div>
+                            <p class="">28. května 2014: Nový motocykl Honda CBF 125 pro výuku skupin AM a A1.</p>
+                            <img src="http://www.autoskola-drbola.wz.cz/grafika/foto/cbf125.jpg" alt="Foto motocyklu Honda CBF 125 pro výuku skupin AM a A1. " class="w-1/2 h-auto">
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
@@ -83,7 +98,7 @@
         </table>
         <!--Tabulka 2-->
         <h3>Sdružený výcvik:</h3>
-        <table style="border: solid black">
+        <table class="border-black">
             <thead>
             <tr>
                 <th>Skupina</th>
@@ -163,7 +178,7 @@
         <h3>Jak probíhá vyuka?</h3>
         <p>Teoretická vyuka probíhá každý pátek od 14:00 do 18:00 v učebně autoškoly ve Velkých Pavlovicích.</p>
         <p>Praktická vyuka probíhá dle dohody nebo podle přidělení instruktora.</p>
-        <p>Rozvržení vašich jízd najdete zde: <a href="jizdy/jizdy-studenta.php">Kniha jízd</a></p>
+        <p>Rozvržení vašich jízd najdete zde: <a href="../jizdy/jizdy-studenta.php">Kniha jízd</a></p>
         <!--Testy-->
         <h3>Chcete se připravit na závěrečné testy?</h3>
         <p>Na této stránce <a href="https://etesty2.mdcr.cz">https://etesty2.mdcr.cz</a> naleznete všechny dostupné testové otázky a také si tam můžete projít samotné testy!</p>
@@ -187,5 +202,15 @@
 <footer>
     <p>&copy; Autoři stránek Sebik a Tope</p>
 </footer>
+
+<script>
+    const activeItem = document.querySelectorAll('[data-active="true"]');
+
+    if(activeItem) {
+        activeItem.classList.add('opacity-1');
+    }
+</script>
+
+
 </body>
 </html>

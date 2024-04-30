@@ -6,7 +6,7 @@ if (isset($_SESSION["uzivatelskeJmeno"])) {
     exit();
 }
 
-require ("../assets/configDB.php");
+require("../assets/configDB.php");
 
 $conn = connDB();
 
