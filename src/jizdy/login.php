@@ -4,19 +4,19 @@ require ("../assets/configDB.php");
 $conn = connDB();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $jmeno = $_POST["jmeno"];
+    $uzivatelskeJmeno = $_POST["uzivatelskeJmeno"];
     $heslo = $_POST["heslo"];
 
-    $jmeno = mysqli_real_escape_string($conn, $jmeno);
+    $uzivatelskeJmeno = mysqli_real_escape_string($conn, $uzivatelskeJmeno);
 
-    $sql = "SELECT jmeno FROM zaci WHERE jmeno = '$jmeno'";
+    $sql = "SELECT uzivatelskeJmeno FROM zaci WHERE uzivatelskeJmeno = '$uzivatelskeJmeno'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        $hashed_password = $row['jmeno'];
+        $hashed_password = $row['uzivatelskeJmeno'];
         session_start();
-        $_SESSION["jmeno"] = $jmeno;
+        $_SESSION["uzivatelskeJmeno"] = $uzivatelskeJmeno;
         header("location: jizdy.php");
         exit();
     }else{
@@ -38,8 +38,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body>
 <form action="" method="post">
     <h1>Přihlášení do knihy jízd:</h1>
-<label for="jmeno">Uživatelské jméno:</label>
-<input type="text" name="jmeno" id="jmeno" autocomplete="off" required>
+<label for="uzivatelskeJmeno">Uživatelské jméno:</label>
+<input type="text" name="uzivatelskeJmeno" id="uzivatelskeJmeno" autocomplete="off" required>
 <label for="heslo">Heslo:</label>
 <input type="password" name="heslo" id="heslo" autocomplete="off" required>
 <input type="submit" value="Přihlásit se">
