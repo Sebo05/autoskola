@@ -1,1 +1,6 @@
-Require all denied
+RewriteEngine On
+
+AuthUserFile C:\UwAmp\www\autoskolaDrbola\src\assets\.htpasswd
+AuthName "Název stránky"
+AuthType Basic
+require valid-user
