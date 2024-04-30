@@ -34,7 +34,10 @@ $query = mysqli_query($conn, $sql);
             <p>Telefon: <?= htmlspecialchars($row["telefon"])?></p>
         </li>
         <li>
-            <a href="pridani-jizd.php?id=<?= $row['zak_id']?>">Jizdy studenta</a>
+            <a href="pridani-jizd.php?id=<?= $row['zak_id']?>">Přidat jízdy</a>
+        </li>
+        <li>
+            <a href="smazat-studenta.php?zak_id=<?= $row['zak_id']?>">Smazat studenta z Databaze</a>
         </li>
     <?php endwhile;?>
     </ul>
