@@ -21,7 +21,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $error = "Hesla se neshodují";
         echo "<p>$error</p>";
     }else{
-        $sql = "INSERT INTO zaci (jmeno,uzivatelske_jmeno, telefon,datum_nastupu, heslo)
+        $sql = "INSERT INTO zaci (jmeno,uzivatelskeJmeno, telefon,datum_nastupu, heslo)
                 VALUES (?,?,?,?,?)";
 
         $conn = connDB();
