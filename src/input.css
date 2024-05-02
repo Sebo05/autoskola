@@ -2,3 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.gradient {
+    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
+}
+
+.z-100 {
+    z-index: 100;
+}
+
+
+.z-200 {
+    z-index: 200;
+}
+
+.max-height-800 {
+    max-height: 700px;
+}
+
+.active {
+    background-color: #ffffff;
+}
+
+.bg-header-purple {
+    background-color: rgba(65, 0, 155, 0.6);
+}
+
+.bg-section-purple {
+    background-color: rgba(145, 89, 240, 1);
+}
+
+.shadow-tabulka {
+    -webkit-box-shadow: 10px 8.5px 12.5px -4px #b6b6b6;
+    -moz-box-shadow: 10px 8.5px 12.5px -4px #b6b6b6;
+    box-shadow: 10px 8.5px 12.5px -4px #b6b6b6;
+}
+
+.table-width {
+    width: 1200px;
+}
+
+.blur-background {
+    background-color: rgba(0, 0, 0, 0.015); /* Adjust the color and opacity as needed */
+    backdrop-filter: blur(3px); /* Adjust the blur radius as needed */
+}
