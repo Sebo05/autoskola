@@ -1,9 +1,11 @@
 <?php
 session_start();
+
 if (isset($_SESSION["uzivatelskeJmeno"])) {
-    header("location: jizdy-studenta.php");
+    header("Location: jizdy-studenta.php");
     exit();
 }
+
 require("../assets/configDB.php");
 
 $conn = connDB();
@@ -14,21 +16,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $uzivatelskeJmeno = mysqli_real_escape_string($conn, $uzivatelskeJmeno);
 
-    $sql = "SELECT uzivatelskeJmeno, zak_id FROM zaci WHERE uzivatelskeJmeno = '$uzivatelskeJmeno'";
+    $sql = "SELECT uzivatelskeJmeno FROM zaci WHERE uzivatelskeJmeno = '$uzivatelskeJmeno'";
     $result = mysqli_query($conn, $sql);
 
     if (mysqli_num_rows($result) == 1) {
         $row = mysqli_fetch_assoc($result);
-        $uzivatelskeJmeno = $row['uzivatelskeJmeno'];
-        $zak_id = $row['zak_id'];
+        $hashed_password = $row['uzivatelskeJmeno'];
         session_start();
         $_SESSION["uzivatelskeJmeno"] = $uzivatelskeJmeno;
         header("location: jizdy-studenta.php");
         exit();
-    } else {
+    }else{
         echo "Neplatné jméno nebo heslo.";
     }
 }
+
+
 ?>
 <!doctype html>
 <html lang="en">

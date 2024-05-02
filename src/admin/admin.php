@@ -1,5 +1,5 @@
 <?php
-require ("../assets/configDB.php");
+require("../assets/configDB.php");
 
 $conn = connDB();
 
