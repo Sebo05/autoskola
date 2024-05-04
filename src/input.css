@@ -4,7 +4,7 @@
 
 
 .gradient {
-    background: linear-gradient(to right, rgba(0,0,0,0.8), rgba(0,0,0,0));
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0));
 }
 
 .z-100 {
@@ -26,6 +26,8 @@
 
 .bg-header-purple {
     background-color: rgba(65, 0, 155, 0.6);
+    backdrop-filter: blur(3px);
+    transition: all .3s ease-in-out;
 }
 
 .bg-section-purple {
@@ -45,4 +47,16 @@
 .blur-background {
     background-color: rgba(0, 0, 0, 0.015); /* Adjust the color and opacity as needed */
     backdrop-filter: blur(3px); /* Adjust the blur radius as needed */
+    transition: all .3s ease-in-out;
+}
+
+.navbar img {
+    transition: all .3s ease-in-out;
+}
+
+.input-password:focus{
+    border-color: #5211c1;
+}
+.input-username:focus {
+    border-color: #5211c1;
 }
